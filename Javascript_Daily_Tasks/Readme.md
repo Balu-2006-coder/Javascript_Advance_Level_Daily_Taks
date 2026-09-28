@@ -1,221 +1,151 @@
-# 🧮 JavaScript Daily Tasks — Day 07: DOM & Functions
+# Day 08 – DOM Validation
 
-This day focuses on practicing **JavaScript functions and DOM manipulation** by creating a simple calculator that performs multiple mathematical operations. The task helps build an understanding of functions, user input, DOM selection, type conversion, conditions, and dynamic output.
+This folder contains my **Day 08 JavaScript practice tasks** focused on **DOM manipulation, input validation, conditions, calculations, and displaying dynamic results** using JavaScript.
 
-## 📌 Tasks
+## 📌 Topics Covered
 
-| Task        | Description                                                                   | Concepts                                                                               |
-| ----------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| **Task 16** | Perform Addition, Subtraction, Multiplication, and Division using two numbers | Functions, DOM, `getElementById()`, `Number()`, `if` condition, `innerHTML`, `onclick` |
-
-## 📂 Task Structure
-
-```text
-Day-07-DOM-Functions/
-│
-├── Task-16-Multiple-Operations/
-│   ├── Output_Screenshots/
-│   │   ├── Output_1.png
-│   │   ├── Output_2.png
-│   │   ├── Output_3.png
-│   │   ├── Output_4.png
-│   │   └── Output_5.png
-│   │
-│   ├── index.html
-│   └── script.js
-│
-└── README.md
-```
-
-## 🔢 Task 16 — Multiple Operations
-
-This task creates a simple calculator where the user enters two numbers and selects an operation.
-
-The calculator supports four operations:
-
-```text
-Addition
-Subtraction
-Multiplication
-Division
-```
-
-The result is displayed dynamically on the webpage.
-
-## ⚙️ How It Works
-
-1. The user enters the **First Number**.
-2. The user enters the **Second Number**.
-3. The user selects one of the operation buttons.
-4. The corresponding JavaScript function is executed.
-5. The input values are retrieved using `document.getElementById()`.
-6. The values are converted from strings to numbers using `Number()`.
-7. The selected mathematical operation is performed.
-8. The result is displayed dynamically using `innerHTML`.
-
-## ➕ Addition
-
-The `add()` function adds the two entered numbers.
-
-```javascript
-const result = num1 + num2;
-```
-
-Example:
-
-```text
-First Number: 10
-Second Number: 5
-
-Addition = 15
-```
-
-## ➖ Subtraction
-
-The `subtract()` function subtracts the second number from the first number.
-
-```javascript
-const result = num1 - num2;
-```
-
-Example:
-
-```text
-First Number: 10
-Second Number: 5
-
-Subtraction = 5
-```
-
-## ✖️ Multiplication
-
-The `multiply()` function multiplies the two entered numbers.
-
-```javascript
-const result = num1 * num2;
-```
-
-Example:
-
-```text
-First Number: 10
-Second Number: 5
-
-Multiplication = 50
-```
-
-## ➗ Division
-
-The `divide()` function divides the first number by the second number.
-
-```javascript
-const result = num1 / num2;
-```
-
-The task also includes a condition to prevent division by zero.
-
-```javascript
-if (num2 === 0) {
-    output.innerHTML = "Cannot divide by zero";
-}
-```
-
-Example:
-
-```text
-First Number: 10
-Second Number: 2
-
-Division = 5
-```
-
-If the second number is `0`:
-
-```text
-Cannot divide by zero
-```
-
-## 🧠 Concepts Practiced
-
-* JavaScript Functions
 * DOM Manipulation
+* Getting values from input fields
 * `document.getElementById()`
+* Number conversion using `Number()`
+* Conditional Statements
+* `if`, `else if`, and `else`
+* Logical OR (`||`)
+* Form/Input Validation
+* Calculations using JavaScript
+* Dynamic HTML output using `innerHTML`
+* JavaScript Functions
 * `onclick` Event
-* User Input
-* `Number()` Type Conversion
-* Variables
-* Mathematical Operators
-* `if...else` Condition
-* `innerHTML`
-* Dynamic Output
-* Basic Error Handling
+* Basic Result/Grade Calculation
 
-## 🎯 Learning Goals
+---
 
-* Understand how JavaScript functions work.
-* Learn how to connect HTML buttons with JavaScript functions.
-* Practice retrieving values from HTML input elements.
-* Understand string-to-number conversion using `Number()`.
-* Perform mathematical operations using JavaScript.
-* Dynamically update HTML content using DOM manipulation.
-* Learn how to handle division-by-zero conditions.
-* Improve basic JavaScript problem-solving skills.
+## 📂 Task List
 
-## 🚀 Technologies Used
+### Task 17 – Student Result Calculator
+
+A simple **Student Result Calculator** that accepts marks for five subjects and calculates:
+
+* Total Marks
+* Average Marks
+* Grade
+* Pass/Fail based on subject marks
+
+### 📝 Input Fields
+
+The application accepts marks for:
+
+1. Subject 1
+2. Subject 2
+3. Subject 3
+4. Subject 4
+5. Subject 5
+
+### ⚙️ Validation
+
+The application checks whether all subject marks have been entered.
+
+If any required mark is missing:
+
+```text
+Please enter all marks
+```
+
+is displayed.
+
+### 📊 Result Calculation
+
+<img width="595" height="620" alt="Output_1" src="https://github.com/user-attachments/assets/abb7ae0f-b770-4657-902f-f00903116b53" />
+
+<img width="641" height="658" alt="Output_2" src="https://github.com/user-attachments/assets/d83410aa-f393-4ba4-a99a-7b8ed78f6cdf" />
+
+<img width="560" height="656" alt="Output_3" src="https://github.com/user-attachments/assets/7ce4fa95-3273-4b47-bd0b-3668d76cd032" />
+
+The total is calculated as:
+
+```text
+Total = Subject 1 + Subject 2 + Subject 3 + Subject 4 + Subject 5
+```
+
+The average is calculated as:
+
+```text
+Average = Total / 5
+```
+
+### 🎓 Grade Logic
+
+| Condition            | Grade   |
+| -------------------- | ------- |
+| Any subject below 35 | F Grade |
+| Average > 90         | O Grade |
+| Average >= 75        | A Grade |
+| Average >= 60        | B Grade |
+| Average >= 50        | C Grade |
+| Average < 50         | D Grade |
+
+---
+
+## 🛠️ Technologies Used
 
 * HTML5
 * JavaScript
 * DOM Manipulation
 
-## 🖥️ User Interface
+---
 
-The webpage contains:
+## 📁 Project Structure
 
 ```text
-Multiple Operations
-
-First Number:  [          ]
-
-Second Number: [          ]
-
-[ Add ] [ Subtract ] [ Multiply ] [ Divide ]
-
-Output
-
-Enter two numbers and select an operation
+Task-17-Student-Result/
+│
+├── index.html
+├── script.js
+└── README.md
 ```
 
-## 📸 Output Screenshots
+---
 
-The `Output_Screenshots` folder contains screenshots demonstrating the different operations and their corresponding outputs.
-Examples include:
+## 💡 What I Practiced
 
-* Addition output
-* Subtraction output
-* Multiplication output
-* Division output
-* Division by zero validation
+Through this task, I practiced taking values from HTML input elements, converting them into numbers, performing calculations, applying conditional logic, validating user input, and dynamically displaying the result on the webpage.
 
+---
 
-<img width="660" height="512" alt="Output1" src="https://github.com/user-attachments/assets/50a3eeb9-30c9-42c1-af87-f4ec2b806b84" />
-<img width="640" height="513" alt="Output2" src="https://github.com/user-attachments/assets/749a366c-63bd-4ad8-98a8-9c0e8b6a2393" />
-<img width="607" height="517" alt="Output3" src="https://github.com/user-attachments/assets/c52b52e8-1204-4d78-839d-fe8aa949a8a4" />
-<img width="632" height="495" alt="Output4" src="https://github.com/user-attachments/assets/82779867-ebca-42f1-bbbf-0b280193b8d9" />
-<img width="642" height="522" alt="Output5" src="https://github.com/user-attachments/assets/dfb7af3f-4748-4779-9963-fc0d99c0b0d7" />
+## 🚀 How to Run
 
+1. Open the `Task-17-Student-Result` folder.
+2. Open `index.html` in a browser.
+3. Enter marks for all five subjects.
+4. Click **Calculate Result**.
+5. The total, average, and grade will be displayed below.
 
-## 📁 Files
+---
 
-### `index.html`
+## 📌 Example
 
-Contains the webpage structure, input fields, operation buttons, and output element.
+### Input
 
-### `script.js`
+```text
+Subject 1: 85
+Subject 2: 78
+Subject 3: 92
+Subject 4: 88
+Subject 5: 80
+```
 
-Contains the JavaScript functions responsible for performing the mathematical operations and displaying the results.
+### Output
 
-## ✅ Day 07 Completed
+```text
+Total Marks: 423
+Average: 84.6
+Grade: A Grade
+```
 
-**Task 16 — Multiple Operations completed successfully ✅**
+---
 
-**Day 07 Completed Successfully 🎯**
+## 👨‍💻 Author
+
+**Praveen Kumar**
+
+JavaScript Daily Tasks – Day 08

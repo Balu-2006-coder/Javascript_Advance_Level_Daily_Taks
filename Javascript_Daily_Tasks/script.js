@@ -1,74 +1,64 @@
-function add() {
+function calculateResult() {
 
-    const num1 = Number(
-        document.getElementById("firstNumber").value
-    );
+    const mark1 = Number(document.getElementById("mark1").value);
+    const mark2 = Number(document.getElementById("mark2").value);
+    const mark3 = Number(document.getElementById("mark3").value);
+    const mark4 = Number(document.getElementById("mark4").value);
+    const mark5 = Number(document.getElementById("mark5").value);
 
-    const num2 = Number(
-        document.getElementById("secondNumber").value
-    );
+    const output = document.getElementById("output");
 
-    const result = num1 + num2;
+    if (
+        mark1 === 0 ||
+        mark2 === 0 ||
+        mark3 === 0 ||
+        mark4 === 0 ||
+        mark5 === 0
+    ) {
+        output.innerHTML = "Please enter all marks";
+        return;
+    }
 
-    document.getElementById("output").innerHTML =
-        "Addition = " + result;
-}
+    const total =
+        mark1 + mark2 + mark3 + mark4 + mark5;
 
+    const average = total / 5;
 
-function subtract() {
+    let grade;
 
-    const num1 = Number(
-        document.getElementById("firstNumber").value
-    );
+    if (
+        mark1 < 35 ||
+        mark2 < 35 ||
+        mark3 < 35 ||
+        mark4 < 35 ||
+        mark5 < 35
+    ) {
 
-    const num2 = Number(
-        document.getElementById("secondNumber").value
-    );
+        grade = "F Grade";
 
-    const result = num1 - num2;
+    } else if (average > 90) {
 
-    document.getElementById("output").innerHTML =
-        "Subtraction = " + result;
-}
+        grade = "O Grade";
 
+    } else if (average >= 75) {
 
-function multiply() {
+        grade = "A Grade";
 
-    const num1 = Number(
-        document.getElementById("firstNumber").value
-    );
+    } else if (average >= 60) {
 
-    const num2 = Number(
-        document.getElementById("secondNumber").value
-    );
+        grade = "B Grade";
 
-    const result = num1 * num2;
+    } else if (average >= 50) {
 
-    document.getElementById("output").innerHTML =
-        "Multiplication = " + result;
-}
-
-
-function divide() {
-
-    const num1 = Number(
-        document.getElementById("firstNumber").value
-    );
-
-    const num2 = Number(
-        document.getElementById("secondNumber").value
-    );
-
-    if (num2 === 0) {
-
-        document.getElementById("output").innerHTML =
-            "Cannot divide by zero";
+        grade = "C Grade";
 
     } else {
 
-        const result = num1 / num2;
-
-        document.getElementById("output").innerHTML =
-            "Division = " + result;
+        grade = "D Grade";
     }
+
+    output.innerHTML =
+        "Total Marks: " + total +
+        "<br>Average: " + average +
+        "<br>Grade: " + grade;
 }
