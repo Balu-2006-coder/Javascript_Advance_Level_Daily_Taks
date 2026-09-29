@@ -1,64 +1,62 @@
-function calculateResult() {
+function analyzeNumber() {
 
-    const mark1 = Number(document.getElementById("mark1").value);
-    const mark2 = Number(document.getElementById("mark2").value);
-    const mark3 = Number(document.getElementById("mark3").value);
-    const mark4 = Number(document.getElementById("mark4").value);
-    const mark5 = Number(document.getElementById("mark5").value);
+    // Get the value from input
+    let number = Number(document.getElementById("number").value);
 
-    const output = document.getElementById("output");
+    // Get output element
+    let output = document.getElementById("output");
 
-    if (
-        mark1 === 0 ||
-        mark2 === 0 ||
-        mark3 === 0 ||
-        mark4 === 0 ||
-        mark5 === 0
-    ) {
-        output.innerHTML = "Please enter all marks";
-        return;
+    // Check if input is empty
+    if (document.getElementById("number").value === "") {
+
+        output.innerHTML = "Please enter a number.";
+
     }
 
-    const total =
-        mark1 + mark2 + mark3 + mark4 + mark5;
+    // Check positive, negative or zero
+    else if (number > 0) {
 
-    const average = total / 5;
+        if (number % 2 === 0) {
 
-    let grade;
+            output.innerHTML =
+                "Number: " + number +
+                "<br>Type: Positive Number" +
+                "<br>Even Number";
 
-    if (
-        mark1 < 35 ||
-        mark2 < 35 ||
-        mark3 < 35 ||
-        mark4 < 35 ||
-        mark5 < 35
-    ) {
+        } else {
 
-        grade = "F Grade";
+            output.innerHTML =
+                "Number: " + number +
+                "<br>Type: Positive Number" +
+                "<br>Odd Number";
+        }
 
-    } else if (average > 90) {
-
-        grade = "O Grade";
-
-    } else if (average >= 75) {
-
-        grade = "A Grade";
-
-    } else if (average >= 60) {
-
-        grade = "B Grade";
-
-    } else if (average >= 50) {
-
-        grade = "C Grade";
-
-    } else {
-
-        grade = "D Grade";
     }
 
-    output.innerHTML =
-        "Total Marks: " + total +
-        "<br>Average: " + average +
-        "<br>Grade: " + grade;
+    else if (number < 0) {
+
+        if (number % 2 === 0) {
+
+            output.innerHTML =
+                "Number: " + number +
+                "<br>Type: Negative Number" +
+                "<br>Even Number";
+
+        } else {
+
+            output.innerHTML =
+                "Number: " + number +
+                "<br>Type: Negative Number" +
+                "<br>Odd Number";
+        }
+
+    }
+
+    else {
+
+        output.innerHTML =
+            "Number: 0" +
+            "<br>Type: Zero" +
+            "<br>Even Number";
+    }
 }
