@@ -1,64 +1,74 @@
-function calculateResult() {
+let products = [
 
-    const mark1 = Number(document.getElementById("mark1").value);
-    const mark2 = Number(document.getElementById("mark2").value);
-    const mark3 = Number(document.getElementById("mark3").value);
-    const mark4 = Number(document.getElementById("mark4").value);
-    const mark5 = Number(document.getElementById("mark5").value);
+    {
+        name: "Laptop",
+        brand: "Dell",
+        price: 55000
+    },
 
-    const output = document.getElementById("output");
+    {
+        name: "Mobile",
+        brand: "Samsung",
+        price: 25000
+    },
 
-    if (
-        mark1 === 0 ||
-        mark2 === 0 ||
-        mark3 === 0 ||
-        mark4 === 0 ||
-        mark5 === 0
-    ) {
-        output.innerHTML = "Please enter all marks";
-        return;
+    {
+        name: "Headphones",
+        brand: "Boat",
+        price: 2000
+    },
+
+    {
+        name: "Smart Watch",
+        brand: "Noise",
+        price: 3500
+    },
+
+    {
+        name: "Camera",
+        brand: "Canon",
+        price: 45000
     }
 
-    const total =
-        mark1 + mark2 + mark3 + mark4 + mark5;
+];
 
-    const average = total / 5;
 
-    let grade;
+function searchProduct() {
 
-    if (
-        mark1 < 35 ||
-        mark2 < 35 ||
-        mark3 < 35 ||
-        mark4 < 35 ||
-        mark5 < 35
-    ) {
+    let searchValue =
+        document.getElementById("search").value.toLowerCase();
 
-        grade = "F Grade";
+    let output =
+        document.getElementById("output");
 
-    } else if (average > 90) {
+    let found = false;
 
-        grade = "O Grade";
 
-    } else if (average >= 75) {
+    for (let i = 0; i < products.length; i++) {
 
-        grade = "A Grade";
+        if (products[i].name.toLowerCase() === searchValue) {
 
-    } else if (average >= 60) {
+            output.innerHTML =
+                '<div class="card">' +
+                '<h2>🛍️ ' + products[i].name + '</h2>' +
+                '<p>Brand: ' + products[i].brand + '</p>' +
+                '<p class="price">₹' + products[i].price + '</p>' +
+                '<p> Product Available</p>' +
+                '</div>';
 
-        grade = "B Grade";
+            found = true;
 
-    } else if (average >= 50) {
-
-        grade = "C Grade";
-
-    } else {
-
-        grade = "D Grade";
+            break;
+        }
     }
 
-    output.innerHTML =
-        "Total Marks: " + total +
-        "<br>Average: " + average +
-        "<br>Grade: " + grade;
+
+    if (found === false) {
+
+        output.innerHTML =
+            '<div class="card">' +
+            '<h2>Product Not Found</h2>' +
+            '<p>Try searching Laptop, Mobile, Camera...</p>' +
+            '</div>';
+    }
 }

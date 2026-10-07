@@ -1,88 +1,24 @@
-# Day 08 – DOM Validation
+# Day-13: Search, Filter & Map
 
-This folder contains my **Day 08 JavaScript practice tasks** focused on **DOM manipulation, input validation, conditions, calculations, and displaying dynamic results** using JavaScript.
+## 📌 Overview
 
-## 📌 Topics Covered
+This day focuses on important JavaScript array methods and practical data-handling techniques using **Search, Filter, and Map**.
 
-* DOM Manipulation
-* Getting values from input fields
-* `document.getElementById()`
-* Number conversion using `Number()`
-* Conditional Statements
-* `if`, `else if`, and `else`
-* Logical OR (`||`)
-* Form/Input Validation
-* Calculations using JavaScript
-* Dynamic HTML output using `innerHTML`
-* JavaScript Functions
-* `onclick` Event
-* Basic Result/Grade Calculation
+The tasks demonstrate how to search through data, filter products based on conditions, and transform student data using the `map()` method.
+
+These concepts are commonly used when working with dynamic lists, search functionality, product filtering, and data transformation in web applications.
 
 ---
 
-## 📂 Task List
+## 🎯 Learning Objectives
 
-### Task 17 – Student Result Calculator
-
-A simple **Student Result Calculator** that accepts marks for five subjects and calculates:
-
-* Total Marks
-* Average Marks
-* Grade
-* Pass/Fail based on subject marks
-
-### 📝 Input Fields
-
-The application accepts marks for:
-
-1. Subject 1
-2. Subject 2
-3. Subject 3
-4. Subject 4
-5. Subject 5
-
-### ⚙️ Validation
-
-The application checks whether all subject marks have been entered.
-
-If any required mark is missing:
-
-```text
-Please enter all marks
-```
-
-is displayed.
-
-### 📊 Result Calculation
-
-<img width="595" height="620" alt="Output_1" src="https://github.com/user-attachments/assets/abb7ae0f-b770-4657-902f-f00903116b53" />
-
-<img width="641" height="658" alt="Output_2" src="https://github.com/user-attachments/assets/d83410aa-f393-4ba4-a99a-7b8ed78f6cdf" />
-
-<img width="560" height="656" alt="Output_3" src="https://github.com/user-attachments/assets/7ce4fa95-3273-4b47-bd0b-3668d76cd032" />
-
-The total is calculated as:
-
-```text
-Total = Subject 1 + Subject 2 + Subject 3 + Subject 4 + Subject 5
-```
-
-The average is calculated as:
-
-```text
-Average = Total / 5
-```
-
-### 🎓 Grade Logic
-
-| Condition            | Grade   |
-| -------------------- | ------- |
-| Any subject below 35 | F Grade |
-| Average > 90         | O Grade |
-| Average >= 75        | A Grade |
-| Average >= 60        | B Grade |
-| Average >= 50        | C Grade |
-| Average < 50         | D Grade |
+* Understand the `filter()` method in JavaScript.
+* Implement a product search functionality.
+* Filter products based on their price.
+* Understand the `map()` method.
+* Transform data from an Array of Objects.
+* Display processed data dynamically using the DOM.
+* Practice combining JavaScript arrays with DOM manipulation.
 
 ---
 
@@ -94,58 +30,331 @@ Average = Total / 5
 
 ---
 
-## 📁 Project Structure
+## 📂 Folder Structure
 
 ```text
-Task-17-Student-Result/
+Day-13-Search-Filter-Map/
 │
-├── index.html
-├── script.js
-└── README.md
+├── Task-26-Product-Search/
+│   ├── index.html
+│   ├── script.js
+│   └── Output_Screenshots/
+│
+├── Task-27-Price-Filter/
+│   ├── index.html
+│   ├── script.js
+│   └── Output_Screenshots/
+│
+└── Task-28-Student-Map/
+    ├── index.html
+    ├── script.js
+    └── Output_Screenshots/
 ```
 
 ---
 
-## 💡 What I Practiced
+# 📚 Tasks
 
-Through this task, I practiced taking values from HTML input elements, converting them into numbers, performing calculations, applying conditional logic, validating user input, and dynamically displaying the result on the webpage.
+## 🔹 Task-26: Product Search
+
+### 📌 Description
+
+Create a **Product Search** functionality using JavaScript.
+
+The user can enter a product name in the search field, and the matching products are displayed dynamically on the webpage.
+
+The task uses an array of product objects and the `filter()` method to search for matching products.
+
+### 💡 Concepts Practiced
+
+* Arrays
+* Objects
+* Array of Objects
+* `filter()`
+* `includes()`
+* `toLowerCase()`
+* Search Functionality
+* DOM Manipulation
+* Dynamic Content Display
+
+### Example
+
+```javascript
+const products = [
+    {
+        name: "Laptop",
+        price: 55000
+    },
+    {
+        name: "Mobile",
+        price: 25000
+    },
+    {
+        name: "Headphones",
+        price: 3000
+    }
+];
+```
+
+Search can be performed using:
+
+```javascript
+const result = products.filter((product) =>
+    product.name.toLowerCase().includes(searchValue.toLowerCase())
+);
+```
 
 ---
 
-## 🚀 How to Run
+## 🔹 Task-27: Price Filter
 
-1. Open the `Task-17-Student-Result` folder.
-2. Open `index.html` in a browser.
-3. Enter marks for all five subjects.
-4. Click **Calculate Result**.
-5. The total, average, and grade will be displayed below.
+### 📌 Description
+
+Create a **Price Filter** functionality using JavaScript.
+
+The products are filtered based on their price, and only the products that satisfy the given price condition are displayed.
+
+This task helps understand how `filter()` can be used to select specific objects from an array based on a condition.
+
+### 💡 Concepts Practiced
+
+* Arrays
+* Objects
+* Array of Objects
+* `filter()`
+* Comparison Operators
+* Conditional Filtering
+* DOM Manipulation
+* Dynamic Content Display
+
+### Example
+
+```javascript
+const products = [
+    {
+        name: "Laptop",
+        price: 55000
+    },
+    {
+        name: "Mobile",
+        price: 25000
+    },
+    {
+        name: "Mouse",
+        price: 800
+    }
+];
+```
+
+Example price filtering:
+
+```javascript
+const result = products.filter((product) =>
+    product.price <= 30000
+);
+```
+
+This returns products whose price is less than or equal to ₹30,000.
 
 ---
 
-## 📌 Example
+## 🔹 Task-28: Student Map
 
-### Input
+### 📌 Description
+
+Create a **Student Map** functionality using JavaScript.
+
+The task uses the `map()` method to iterate through an array of student objects and transform the required student information into a new array.
+
+The processed data is then displayed dynamically on the webpage.
+
+### 💡 Concepts Practiced
+
+* Arrays
+* Objects
+* Array of Objects
+* `map()`
+* Data Transformation
+* Template Literals
+* DOM Manipulation
+* Dynamic Content Display
+
+### Example
+
+```javascript
+const students = [
+    {
+        name: "Praveen",
+        mark: 85
+    },
+    {
+        name: "Arun",
+        mark: 78
+    }
+];
+```
+
+Using `map()`:
+
+```javascript
+const studentNames = students.map((student) =>
+    student.name
+);
+```
+
+The `map()` method creates a new array containing the transformed values.
+
+---
+
+# 🧠 Key Concepts Learned
+
+## 1. `filter()`
+
+The `filter()` method creates a new array containing elements that satisfy a specified condition.
+
+```javascript
+const numbers = [10, 20, 30, 40];
+
+const result = numbers.filter((number) =>
+    number > 20
+);
+```
+
+**Output:**
 
 ```text
-Subject 1: 85
-Subject 2: 78
-Subject 3: 92
-Subject 4: 88
-Subject 5: 80
-```
-
-### Output
-
-```text
-Total Marks: 423
-Average: 84.6
-Grade: A Grade
+[30, 40]
 ```
 
 ---
 
-## 👨‍💻 Author
+## 2. `map()`
 
-**Praveen Kumar**
+The `map()` method creates a new array by transforming every element in the original array.
 
-JavaScript Daily Tasks – Day 08
+```javascript
+const numbers = [1, 2, 3, 4];
+
+const result = numbers.map((number) =>
+    number * 2
+);
+```
+
+**Output:**
+
+```text
+[2, 4, 6, 8]
+```
+
+---
+
+## 3. `includes()`
+
+The `includes()` method checks whether a string contains a specific value.
+
+```javascript
+"Laptop".toLowerCase().includes("lap");
+```
+
+**Output:**
+
+```text
+true
+```
+
+---
+
+## 4. `toLowerCase()`
+
+The `toLowerCase()` method converts text into lowercase and is useful for creating case-insensitive searches.
+
+```javascript
+const searchValue = "LAPTOP";
+
+searchValue.toLowerCase();
+```
+
+**Output:**
+
+```text
+laptop
+```
+
+---
+
+## 5. Search Functionality
+
+Search functionality can be implemented by combining:
+
+* `filter()`
+* `includes()`
+* `toLowerCase()`
+
+Example:
+
+```javascript
+const result = products.filter((product) =>
+    product.name.toLowerCase().includes(searchValue.toLowerCase())
+);
+```
+
+---
+
+## 6. Data Transformation
+
+The `map()` method can be used to transform an Array of Objects into a new array containing only the required information.
+
+```javascript
+const names = students.map((student) =>
+    student.name
+);
+```
+
+---
+
+# 📸 Output Screenshots
+
+Each task contains an **Output_Screenshots** folder containing the respective output screenshots.
+
+* **Task-26:** Product Search Output
+* **Task-27:** Price Filter Output
+* **Task-28:** Student Map Output
+
+---
+
+# 📋 Task Summary
+
+| Task    | Project        | Main Concept                  |
+| ------- | -------------- | ----------------------------- |
+| Task-26 | Product Search | `filter()` + Search           |
+| Task-27 | Price Filter   | `filter()` + Conditions       |
+| Task-28 | Student Map    | `map()` + Data Transformation |
+
+---
+
+# 📖 Concepts Covered
+
+* JavaScript Arrays
+* JavaScript Objects
+* Array of Objects
+* `filter()`
+* `map()`
+* `includes()`
+* `toLowerCase()`
+* Comparison Operators
+* Conditional Filtering
+* Search Functionality
+* Data Transformation
+* Template Literals
+* DOM Selection
+* DOM Manipulation
+* Dynamic Content Rendering
+
+---
+
+### ✅ Day-13 Completed
+
+**Day:** 13
+**Topic:** Search, Filter & Map
+**Tasks Completed:** 26, 27, 28
+**Status:** Completed
