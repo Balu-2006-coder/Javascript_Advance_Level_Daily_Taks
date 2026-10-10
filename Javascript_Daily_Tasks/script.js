@@ -1,74 +1,30 @@
-let products = [
+function calculateNumbers() {
 
-    {
-        name: "Laptop",
-        brand: "Dell",
-        price: 55000
-    },
+    let input = document.getElementById("numberInput").value;
 
-    {
-        name: "Mobile",
-        brand: "Samsung",
-        price: 25000
-    },
+    let numbers = input.split(",").map(Number);
 
-    {
-        name: "Headphones",
-        brand: "Boat",
-        price: 2000
-    },
+    // Original Numbers
+    document.getElementById("original").innerText = numbers.join(", ");
 
-    {
-        name: "Smart Watch",
-        brand: "Noise",
-        price: 3500
-    },
+    // Double the numbers
+    let doubledNumbers = numbers.map(function(num) {
+        return num * 2;
+    });
 
-    {
-        name: "Camera",
-        brand: "Canon",
-        price: 45000
-    }
+    document.getElementById("doubled").innerText = doubledNumbers.join(", ");
 
-];
+    // Find even numbers
+    let evenNumbers = numbers.filter(function(num) {
+        return num % 2 === 0;
+    });
 
+    document.getElementById("even").innerText = evenNumbers.join(", ");
 
-function searchProduct() {
+    // Find total
+    let total = numbers.reduce(function(sum, num) {
+        return sum + num;
+    }, 0);
 
-    let searchValue =
-        document.getElementById("search").value.toLowerCase();
-
-    let output =
-        document.getElementById("output");
-
-    let found = false;
-
-
-    for (let i = 0; i < products.length; i++) {
-
-        if (products[i].name.toLowerCase() === searchValue) {
-
-            output.innerHTML =
-                '<div class="card">' +
-                '<h2>🛍️ ' + products[i].name + '</h2>' +
-                '<p>Brand: ' + products[i].brand + '</p>' +
-                '<p class="price">₹' + products[i].price + '</p>' +
-                '<p> Product Available</p>' +
-                '</div>';
-
-            found = true;
-
-            break;
-        }
-    }
-
-
-    if (found === false) {
-
-        output.innerHTML =
-            '<div class="card">' +
-            '<h2>Product Not Found</h2>' +
-            '<p>Try searching Laptop, Mobile, Camera...</p>' +
-            '</div>';
-    }
+    document.getElementById("total").innerText = total;
 }
