@@ -1,30 +1,26 @@
-function calculateNumbers() {
+function showHello() {
 
-    let input = document.getElementById("numberInput").value;
+    document.getElementById("heading").innerText = "Hello";
 
-    let numbers = input.split(",").map(Number);
+}
 
-    // Original Numbers
-    document.getElementById("original").innerText = numbers.join(", ");
+function showWelcome() {
 
-    // Double the numbers
-    let doubledNumbers = numbers.map(function(num) {
-        return num * 2;
-    });
+    document.getElementById("heading").innerText =
+        "Welcome to JavaScript";
 
-    document.getElementById("doubled").innerText = doubledNumbers.join(", ");
+}
 
-    // Find even numbers
-    let evenNumbers = numbers.filter(function(num) {
-        return num % 2 === 0;
-    });
+function showMorning() {
 
-    document.getElementById("even").innerText = evenNumbers.join(", ");
+    document.getElementById("heading").innerText =
+        "Good Morning";
 
-    // Find total
-    let total = numbers.reduce(function(sum, num) {
-        return sum + num;
-    }, 0);
+}
 
-    document.getElementById("total").innerText = total;
+function resetHeading() {
+
+    document.getElementById("heading").innerText =
+        "Pratice of JS DOM Button Click";
+
 }

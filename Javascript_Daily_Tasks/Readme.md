@@ -1,25 +1,25 @@
-# Day-14: Array Methods
+# Day-15: DOM Events
 
 ## 📌 Overview
 
-This day focuses on commonly used **JavaScript Array Methods** for performing calculations, checking conditions, transforming data, and processing values stored in arrays.
+This day focuses on **DOM Events in JavaScript** and how user interactions can be handled to dynamically change webpage content.
 
-The tasks demonstrate practical usage of array methods with **numbers, student marks, product prices, and employee salaries**.
+The tasks demonstrate how to respond to user actions such as **button clicks**, update text, create a counter, and show or hide a password.
 
-These methods are useful for handling and processing data efficiently in real-world JavaScript applications.
+These concepts are important for creating interactive and dynamic web applications.
 
 ---
 
 ## 🎯 Learning Objectives
 
-* Understand commonly used JavaScript Array Methods.
-* Perform mathematical operations on array values.
-* Calculate student marks and results.
-* Calculate product prices and totals.
-* Process employee salary information.
-* Use array methods to transform and calculate data.
-* Practice working with Arrays of Objects.
-* Display calculated results dynamically using the DOM.
+* Understand DOM Events in JavaScript.
+* Handle user interactions using event listeners.
+* Change webpage content dynamically.
+* Create a basic counter application.
+* Show and hide password input values.
+* Practice event-driven programming.
+* Manipulate HTML elements using JavaScript.
+* Understand how user actions trigger JavaScript functions.
 
 ---
 
@@ -28,30 +28,26 @@ These methods are useful for handling and processing data efficiently in real-wo
 * HTML5
 * JavaScript
 * DOM Manipulation
+* DOM Events
 
 ---
 
 ## 📂 Folder Structure
 
 ```text
-Day-14-Array-Methods/
+Day-15-DOM-Events/
 │
-├── Task-27-Number-Operations/
+├── Task-32-Text-Change/
 │   ├── index.html
 │   ├── script.js
 │   └── Output_Screenshots/
 │
-├── Task-28-Student-Marks/
+├── Task-33-Counter-App/
 │   ├── index.html
 │   ├── script.js
 │   └── Output_Screenshots/
 │
-├── Task-29-Price-Calculator/
-│   ├── index.html
-│   ├── script.js
-│   └── Output_Screenshots/
-│
-└── Task-30-Employee-Salary/
+└── Task-34-Show-Hide-Password/
     ├── index.html
     ├── script.js
     └── Output_Screenshots/
@@ -61,233 +57,199 @@ Day-14-Array-Methods/
 
 # 📚 Tasks
 
-## 🔹 Task-27: Number Operations
+## 🔹 Task-32: Text Change
 
 ### 📌 Description
 
-Perform different operations on an array of numbers using JavaScript Array Methods.
+Create a webpage where clicking a button changes the text displayed on the page.
 
-The task focuses on processing numerical values and performing operations such as finding values, calculating results, and transforming array elements.
+This task demonstrates how JavaScript can respond to a **click event** and modify the content of an HTML element dynamically.
 
 ### 💡 Concepts Practiced
 
-* Arrays
-* Array Methods
-* Number Operations
-* `map()`
-* `filter()`
-* `reduce()`
-* Mathematical Operations
-* DOM Manipulation
+* DOM Selection
+* Button Click Event
+* `onclick`
+* `addEventListener()`
+* `textContent`
+* Dynamic Content Change
+* Event Handling
 
 ### Example
 
 ```javascript
-const numbers = [10, 20, 30, 40, 50];
+const button = document.getElementById("button");
+const text = document.getElementById("text");
 
-const doubled = numbers.map((number) =>
-    number * 2
-);
+button.addEventListener("click", () => {
+    text.textContent = "Text Changed!";
+});
 ```
 
-The `map()` method creates a new array by applying an operation to every number.
+When the button is clicked, the existing text is replaced with new text.
 
 ---
 
-## 🔹 Task-28: Student Marks
+## 🔹 Task-33: Counter App
 
 ### 📌 Description
 
-Create and process student marks using JavaScript.
+Create a simple **Counter Application** using JavaScript DOM Events.
 
-The task works with student data and performs calculations or operations on their marks using JavaScript Array Methods.
+The counter value changes based on user interaction with buttons.
+
+This task helps understand how event handling can be used to update numerical values dynamically.
 
 ### 💡 Concepts Practiced
 
-* Arrays
-* Objects
-* Array of Objects
-* Student Marks
-* `map()`
-* `filter()`
-* `reduce()`
-* Conditional Operations
+* DOM Events
+* Button Click Events
+* Variables
+* Increment Operation
+* Decrement Operation
 * DOM Manipulation
+* Dynamic Number Display
 
 ### Example
 
 ```javascript
-const students = [
-    {
-        name: "Praveen",
-        mark: 85
-    },
-    {
-        name: "Arun",
-        mark: 75
-    },
-    {
-        name: "Kumar",
-        mark: 90
+let count = 0;
+
+increaseButton.addEventListener("click", () => {
+    count++;
+    counter.textContent = count;
+});
+```
+
+The counter value is updated whenever the user interacts with the button.
+
+---
+
+## 🔹 Task-34: Show / Hide Password
+
+### 📌 Description
+
+Create a **Show / Hide Password** functionality using JavaScript.
+
+The password input type is changed dynamically when the user interacts with the button, allowing the password to be either visible or hidden.
+
+### 💡 Concepts Practiced
+
+* DOM Selection
+* Click Events
+* Input Element Manipulation
+* `type` Property
+* Conditional Statements
+* Show / Hide Functionality
+* Event Handling
+
+### Example
+
+```javascript
+button.addEventListener("click", () => {
+
+    if (password.type === "password") {
+        password.type = "text";
+    } else {
+        password.type = "password";
     }
-];
+
+});
 ```
 
-Student marks can be processed using Array Methods to calculate totals, averages, or filter students based on their marks.
+Clicking the button switches the password between hidden and visible states.
 
 ---
 
-## 🔹 Task-29: Price Calculator
+# 🧠 Key Concepts Learned
 
-### 📌 Description
+## 1. DOM Events
 
-Create a **Price Calculator** using JavaScript Array Methods.
+DOM Events allow JavaScript to respond to actions performed by the user.
 
-The task processes product prices and calculates the required price-related result from an array of products.
-
-This demonstrates how Array Methods can be used to perform calculations on real-world data.
-
-### 💡 Concepts Practiced
-
-* Arrays
-* Objects
-* Array of Objects
-* Product Prices
-* `map()`
-* `reduce()`
-* Mathematical Operations
-* Price Calculation
-* DOM Manipulation
-
-### Example
-
-```javascript
-const prices = [100, 200, 300, 400];
-
-const total = prices.reduce((sum, price) =>
-    sum + price, 0
-);
-```
-
-The `reduce()` method can be used to calculate the total price.
-
----
-
-## 🔹 Task-30: Employee Salary
-
-### 📌 Description
-
-Create and process an **Employee Salary** system using JavaScript Array Methods.
-
-The task works with employee objects and their salary information to perform calculations and process employee salary data.
-
-### 💡 Concepts Practiced
-
-* Arrays
-* Objects
-* Array of Objects
-* Employee Data
-* Salary Calculation
-* `map()`
-* `filter()`
-* `reduce()`
-* Conditional Operations
-* DOM Manipulation
-
-### Example
-
-```javascript
-const employees = [
-    {
-        name: "Praveen",
-        salary: 50000
-    },
-    {
-        name: "Arun",
-        salary: 40000
-    }
-];
-```
-
-Salary information can be processed using Array Methods to calculate totals or filter employees based on salary conditions.
-
----
-
-# 🧠 Key Array Methods Learned
-
-## 1. `map()`
-
-The `map()` method creates a new array by transforming every element.
-
-```javascript
-const numbers = [1, 2, 3, 4];
-
-const result = numbers.map((number) =>
-    number * 2
-);
-```
-
-**Output:**
+Common events include:
 
 ```text
-[2, 4, 6, 8]
+click
+input
+change
+submit
+mouseover
+keydown
+keyup
 ```
 
 ---
 
-## 2. `filter()`
+## 2. `onclick`
 
-The `filter()` method creates a new array containing elements that satisfy a condition.
+The `onclick` event can be used to execute JavaScript when an element is clicked.
 
 ```javascript
-const numbers = [10, 20, 30, 40];
-
-const result = numbers.filter((number) =>
-    number > 20
-);
+button.onclick = () => {
+    console.log("Button Clicked");
+};
 ```
 
-**Output:**
+---
+
+## 3. `addEventListener()`
+
+`addEventListener()` is used to attach an event handler to an HTML element.
+
+```javascript
+button.addEventListener("click", () => {
+    console.log("Button Clicked");
+});
+```
+
+It provides a flexible way to handle different types of events.
+
+---
+
+## 4. `textContent`
+
+The `textContent` property is used to change the text inside an HTML element.
+
+```javascript
+text.textContent = "Hello JavaScript!";
+```
+
+---
+
+## 5. Event-Driven Programming
+
+JavaScript can execute specific code when an event occurs.
+
+For example:
 
 ```text
-[30, 40]
+User Click
+     ↓
+Event Triggered
+     ↓
+JavaScript Function
+     ↓
+DOM Updated
 ```
 
 ---
 
-## 3. `reduce()`
+## 6. Input Property Manipulation
 
-The `reduce()` method reduces an array to a single value.
+HTML input properties can be modified dynamically using JavaScript.
 
-```javascript
-const numbers = [10, 20, 30, 40];
-
-const total = numbers.reduce((sum, number) =>
-    sum + number, 0
-);
-```
-
-**Output:**
-
-```text
-100
-```
-
----
-
-## 4. Combining Array Methods
-
-Multiple Array Methods can be combined to perform more complex data processing.
-
-Example:
+For password visibility:
 
 ```javascript
-const result = numbers
-    .filter((number) => number > 20)
-    .map((number) => number * 2);
+password.type = "text";
 ```
 
-This first filters the numbers and then transforms the filtered values.
+To hide the password again:
+
+```javascript
+password.type = "password";
+```
 
 ---
 
@@ -295,49 +257,46 @@ This first filters the numbers and then transforms the filtered values.
 
 Each task contains an **Output_Screenshots** folder containing the respective output screenshots.
 
-* **Task-27:** Number Operations Output
-* **Task-28:** Student Marks Output
-* **Task-29:** Price Calculator Output
-* **Task-30:** Employee Salary Output
+* **Task-32:** Text Change Output
+* **Task-33:** Counter App Output
+* **Task-34:** Show / Hide Password Output
 
 ---
 
 # 📋 Task Summary
 
-| Task    | Project           | Main Concept                      |
-| ------- | ----------------- | --------------------------------- |
-| Task-27 | Number Operations | Array Methods + Number Operations |
-| Task-28 | Student Marks     | Array Methods + Student Data      |
-| Task-29 | Price Calculator  | `reduce()` + Price Calculation    |
-| Task-30 | Employee Salary   | Array Methods + Salary Processing |
+| Task    | Project              | Main Concept                |
+| ------- | -------------------- | --------------------------- |
+| Task-32 | Text Change          | Click Event + DOM           |
+| Task-33 | Counter App          | Events + Dynamic Value      |
+| Task-34 | Show / Hide Password | Events + Input Manipulation |
 
 ---
 
 # 📖 Concepts Covered
 
-* JavaScript Arrays
-* JavaScript Objects
-* Array of Objects
-* `map()`
-* `filter()`
-* `reduce()`
-* Mathematical Operations
-* Conditional Operations
-* Data Transformation
-* Number Processing
-* Student Marks Processing
-* Price Calculation
-* Employee Salary Processing
-* Template Literals
+* DOM
 * DOM Selection
 * DOM Manipulation
-* Dynamic Data Display
+* DOM Events
+* Event Listeners
+* `onclick`
+* `addEventListener()`
+* `click` Event
+* `textContent`
+* Variables
+* Increment and Decrement
+* Conditional Statements
+* Input Properties
+* Password Visibility
+* Dynamic Content Updates
+* Event-Driven Programming
 
 ---
 
-### ✅ Day-14 Completed
+### ✅ Day-15 Completed
 
-**Day:** 14
-**Topic:** Array Methods
-**Tasks Completed:** 27, 28, 29, 30
+**Day:** 15
+**Topic:** DOM Events
+**Tasks Completed:** 32, 33, 34
 **Status:** Completed
