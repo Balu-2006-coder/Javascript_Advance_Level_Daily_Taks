@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Changer</title>
+    <title>Login Validation</title>
 </head>
 <body>
 
-    <h1 id="heading"> Pratice of JS DOM Button Click   </h1>
+    <h1>Login Form</h1>
 
-    <button onclick ="showHello()">Hello</button>
+    <form onsubmit="login(event)">
 
-    <button onclick="showWelcome()">Welcome</button>
+        <label>Email:</label>
+        <input type="text" id="email">
 
-    <button onclick="showMorning()">Good Morning</button>
+        <br><br>
 
-    <button onclick="resetHeading()">Reset</button>
+        <label>Password:</label>
+        <input type="password" id="password">
+
+        <br><br>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <p id="message"></p>
 
     <script src="script.js"></script>
 
