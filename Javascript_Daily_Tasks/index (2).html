@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character Counter</title>
+    <title>Counter App</title>
 </head>
 <body>
 
-    <h1>Character Counter</h1>
+    <h1>Counter App</h1>
 
-    <textarea
-        id="text"
-        rows="5"
-        cols="40"
-        oninput="countCharacters()"
-    ></textarea>
+    <h2 id="count">0</h2>
 
-    <p>Characters: <span id="count">0</span></p>
+    <button onclick="decrease()">-</button>
+
+    <button onclick="reset()">Reset</button>
+
+    <button onclick="increase()">+</button>
 
     <script src="script.js"></script>
 

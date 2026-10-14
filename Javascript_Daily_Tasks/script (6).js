@@ -1,18 +1,21 @@
-function checkStrength() {
+let count = 0;
 
-    let password = document.getElementById("password").value;
-    let strength = document.getElementById("strength");
+function increase() {
 
-    if (password.length < 6) {
+    count = count + 1;
+    document.getElementById("count").innerText = count;
 
-        strength.innerText = "Weak";
+}
 
-    } else if (password.length < 10) {
+function decrease() {
 
-        strength.innerText = "Medium";
+    count = count - 1;
+    document.getElementById("count").innerText = count;
+}
 
-    } else {
+function reset() {
 
-        strength.innerText = "Strong";
-    }
+    count = 0;
+    document.getElementById("count").innerText = count;
+
 }

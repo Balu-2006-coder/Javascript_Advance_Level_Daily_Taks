@@ -1,27 +1,25 @@
-# Day-16: Advanced Validation
+# Day-15: DOM Events
 
 ## 📌 Overview
 
-This day focuses on **Advanced Form Validation in JavaScript**.
+This day focuses on **DOM Events in JavaScript** and how user interactions can be handled to dynamically change webpage content.
 
-The tasks demonstrate how JavaScript can be used to validate user input, check login credentials, count characters in real time, and evaluate password strength based on different conditions.
+The tasks demonstrate how to respond to user actions such as **button clicks**, update text, create a counter, and show or hide a password.
 
-These concepts are useful for creating secure, user-friendly, and interactive web forms.
+These concepts are important for creating interactive and dynamic web applications.
 
 ---
 
 ## 🎯 Learning Objectives
 
-* Understand advanced form validation using JavaScript.
-* Validate login form inputs.
-* Check username and password conditions.
-* Count characters dynamically.
-* Validate password requirements.
-* Create a password strength indicator.
-* Use conditional statements for validation.
-* Handle form and input events.
-* Display validation messages dynamically using the DOM.
-* Practice regular expressions and string methods.
+* Understand DOM Events in JavaScript.
+* Handle user interactions using event listeners.
+* Change webpage content dynamically.
+* Create a basic counter application.
+* Show and hide password input values.
+* Practice event-driven programming.
+* Manipulate HTML elements using JavaScript.
+* Understand how user actions trigger JavaScript functions.
 
 ---
 
@@ -30,26 +28,26 @@ These concepts are useful for creating secure, user-friendly, and interactive we
 * HTML5
 * JavaScript
 * DOM Manipulation
-* Form Validation
+* DOM Events
 
 ---
 
 ## 📂 Folder Structure
 
 ```text
-Day-16-Advanced-Validation/
+Day-15-DOM-Events/
 │
-├── Task-35-Login-Validation/
+├── Task-32-Text-Change/
 │   ├── index.html
 │   ├── script.js
 │   └── Output_Screenshots/
 │
-├── Task-36-Character-Counte/
+├── Task-33-Counter-App/
 │   ├── index.html
 │   ├── script.js
 │   └── Output_Screenshots/
 │
-└── Task-37-Password-Strength/
+└── Task-34-Show-Hide-Password/
     ├── index.html
     ├── script.js
     └── Output_Screenshots/
@@ -59,244 +57,198 @@ Day-16-Advanced-Validation/
 
 # 📚 Tasks
 
-## 🔹 Task-35: Login Validation
+## 🔹 Task-32: Text Change
 
 ### 📌 Description
 
-Create a **Login Form Validation** using JavaScript.
+Create a webpage where clicking a button changes the text displayed on the page.
 
-The form validates user input before allowing the login process to continue. Different conditions are checked to ensure that the required fields contain valid information.
+This task demonstrates how JavaScript can respond to a **click event** and modify the content of an HTML element dynamically.
 
 ### 💡 Concepts Practiced
 
-* Form Validation
-* Input Validation
 * DOM Selection
-* `value`
-* `trim()`
-* Conditional Statements
-* `if...else`
-* Error Messages
-* Form Events
-* DOM Manipulation
+* Button Click Event
+* `onclick`
+* `addEventListener()`
+* `textContent`
+* Dynamic Content Change
+* Event Handling
 
 ### Example
 
 ```javascript
-const username = usernameInput.value.trim();
-const password = passwordInput.value.trim();
+const button = document.getElementById("button");
+const text = document.getElementById("text");
 
-if (username === "") {
-    message.textContent = "Username is required";
-} else if (password === "") {
-    message.textContent = "Password is required";
-} else {
-    message.textContent = "Login Successful";
-}
-```
-
-The form checks the entered values and displays the appropriate validation message.
-
----
-
-## 🔹 Task-36: Character Counter
-
-### 📌 Description
-
-Create a **Character Counter** using JavaScript.
-
-The number of characters entered by the user is counted dynamically while typing in the input field or textarea.
-
-This task demonstrates how JavaScript can respond to input events and update the webpage in real time.
-
-### 💡 Concepts Practiced
-
-* Input Events
-* `input` Event
-* String `length`
-* DOM Manipulation
-* Dynamic Content Update
-* Textarea/Input Handling
-* Real-Time Validation
-
-### Example
-
-```javascript
-input.addEventListener("input", () => {
-    count.textContent = input.value.length;
+button.addEventListener("click", () => {
+    text.textContent = "Text Changed!";
 });
 ```
 
-The character count is updated whenever the user enters or removes text.
+When the button is clicked, the existing text is replaced with new text.
 
 ---
 
-## 🔹 Task-37: Password Strength
+## 🔹 Task-33: Counter App
 
 ### 📌 Description
 
-Create a **Password Strength Checker** using JavaScript.
+Create a simple **Counter Application** using JavaScript DOM Events.
 
-The entered password is evaluated based on different conditions such as password length, uppercase letters, lowercase letters, numbers, and special characters.
+The counter value changes based on user interaction with buttons.
 
-The result indicates whether the password is weak, medium, or strong.
+This task helps understand how event handling can be used to update numerical values dynamically.
 
 ### 💡 Concepts Practiced
 
-* Password Validation
-* String Methods
-* Conditional Statements
-* Regular Expressions
-* `length`
-* `test()`
-* Input Events
+* DOM Events
+* Button Click Events
+* Variables
+* Increment Operation
+* Decrement Operation
 * DOM Manipulation
-* Password Strength Evaluation
+* Dynamic Number Display
 
 ### Example
 
 ```javascript
-let strength = 0;
+let count = 0;
 
-if (password.length >= 8) {
-    strength++;
-}
-
-if (/[A-Z]/.test(password)) {
-    strength++;
-}
-
-if (/[a-z]/.test(password)) {
-    strength++;
-}
-
-if (/[0-9]/.test(password)) {
-    strength++;
-}
-
-if (/[^A-Za-z0-9]/.test(password)) {
-    strength++;
-}
+increaseButton.addEventListener("click", () => {
+    count++;
+    counter.textContent = count;
+});
 ```
 
-The password strength can then be determined based on the number of conditions satisfied.
+The counter value is updated whenever the user interacts with the button.
+
+---
+
+## 🔹 Task-34: Show / Hide Password
+
+### 📌 Description
+
+Create a **Show / Hide Password** functionality using JavaScript.
+
+The password input type is changed dynamically when the user interacts with the button, allowing the password to be either visible or hidden.
+
+### 💡 Concepts Practiced
+
+* DOM Selection
+* Click Events
+* Input Element Manipulation
+* `type` Property
+* Conditional Statements
+* Show / Hide Functionality
+* Event Handling
+
+### Example
+
+```javascript
+button.addEventListener("click", () => {
+
+    if (password.type === "password") {
+        password.type = "text";
+    } else {
+        password.type = "password";
+    }
+
+});
+```
+
+Clicking the button switches the password between hidden and visible states.
 
 ---
 
 # 🧠 Key Concepts Learned
 
-## 1. Form Validation
+## 1. DOM Events
 
-JavaScript can validate form inputs before processing the submitted data.
+DOM Events allow JavaScript to respond to actions performed by the user.
 
-```javascript
-if (username === "") {
-    message.textContent = "Username is required";
-}
+Common events include:
+
+```text
+click
+input
+change
+submit
+mouseover
+keydown
+keyup
 ```
 
 ---
 
-## 2. `trim()`
+## 2. `onclick`
 
-The `trim()` method removes unnecessary spaces from the beginning and end of a string.
+The `onclick` event can be used to execute JavaScript when an element is clicked.
 
 ```javascript
-const username = input.value.trim();
+button.onclick = () => {
+    console.log("Button Clicked");
+};
 ```
-
-This is useful when validating user input.
 
 ---
 
-## 3. `length`
+## 3. `addEventListener()`
 
-The `length` property returns the number of characters in a string.
-
-```javascript
-const count = text.length;
-```
-
-It can be used for character counting and password length validation.
-
----
-
-## 4. `input` Event
-
-The `input` event occurs whenever the value of an input element changes.
+`addEventListener()` is used to attach an event handler to an HTML element.
 
 ```javascript
-input.addEventListener("input", () => {
-    console.log(input.value);
+button.addEventListener("click", () => {
+    console.log("Button Clicked");
 });
 ```
 
-This is useful for real-time validation and character counters.
+It provides a flexible way to handle different types of events.
 
 ---
 
-## 5. Regular Expressions
+## 4. `textContent`
 
-Regular expressions can be used to check whether a string contains specific types of characters.
-
-### Uppercase Letter
+The `textContent` property is used to change the text inside an HTML element.
 
 ```javascript
-/[A-Z]/
-```
-
-### Lowercase Letter
-
-```javascript
-/[a-z]/
-```
-
-### Number
-
-```javascript
-/[0-9]/
-```
-
-### Special Character
-
-```javascript
-/[^A-Za-z0-9]/
+text.textContent = "Hello JavaScript!";
 ```
 
 ---
 
-## 6. `test()`
+## 5. Event-Driven Programming
 
-The `test()` method checks whether a regular expression matches a string.
+JavaScript can execute specific code when an event occurs.
 
-```javascript
-/[A-Z]/.test(password);
-```
-
-It returns:
+For example:
 
 ```text
-true
-```
-
-or
-
-```text
-false
+User Click
+     ↓
+Event Triggered
+     ↓
+JavaScript Function
+     ↓
+DOM Updated
 ```
 
 ---
 
-## 7. Conditional Validation
+## 6. Input Property Manipulation
 
-Conditions can be combined to create advanced validation logic.
+HTML input properties can be modified dynamically using JavaScript.
+
+For password visibility:
 
 ```javascript
-if (password.length >= 8) {
-    console.log("Valid Length");
-} else {
-    console.log("Password is too short");
-}
+password.type = "text";
+```
+
+To hide the password again:
+
+```javascript
+password.type = "password";
 ```
 
 ---
@@ -305,49 +257,46 @@ if (password.length >= 8) {
 
 Each task contains an **Output_Screenshots** folder containing the respective output screenshots.
 
-* **Task-35:** Login Validation Output
-* **Task-36:** Character Counter Output
-* **Task-37:** Password Strength Output
+* **Task-32:** Text Change Output
+* **Task-33:** Counter App Output
+* **Task-34:** Show / Hide Password Output
 
 ---
 
 # 📋 Task Summary
 
-| Task    | Project           | Main Concept                     |
-| ------- | ----------------- | -------------------------------- |
-| Task-35 | Login Validation  | Form Validation                  |
-| Task-36 | Character Counter | Input Event + `length`           |
-| Task-37 | Password Strength | Validation + Regular Expressions |
+| Task    | Project              | Main Concept                |
+| ------- | -------------------- | --------------------------- |
+| Task-32 | Text Change          | Click Event + DOM           |
+| Task-33 | Counter App          | Events + Dynamic Value      |
+| Task-34 | Show / Hide Password | Events + Input Manipulation |
 
 ---
 
 # 📖 Concepts Covered
 
-* Form Validation
-* Input Validation
+* DOM
 * DOM Selection
 * DOM Manipulation
-* Form Events
-* Input Events
-* `value`
-* `trim()`
-* `length`
-* `input`
-* `if...else`
+* DOM Events
+* Event Listeners
+* `onclick`
+* `addEventListener()`
+* `click` Event
+* `textContent`
+* Variables
+* Increment and Decrement
 * Conditional Statements
-* Regular Expressions
-* `test()`
-* Password Validation
-* Password Strength
-* Real-Time Validation
-* Dynamic Error Messages
+* Input Properties
+* Password Visibility
 * Dynamic Content Updates
+* Event-Driven Programming
 
 ---
 
-### ✅ Day-16 Completed
+### ✅ Day-15 Completed
 
-**Day:** 16
-**Topic:** Advanced Validation
-**Tasks Completed:** 35, 36, 37
+**Day:** 15
+**Topic:** DOM Events
+**Tasks Completed:** 32, 33, 34
 **Status:** Completed
