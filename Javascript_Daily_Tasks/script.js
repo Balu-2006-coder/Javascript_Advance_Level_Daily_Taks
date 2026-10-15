@@ -1,26 +1,30 @@
-function showHello() {
+function login(event) {
 
-    document.getElementById("heading").innerText = "Hello";
+    event.preventDefault();
 
-}
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let message = document.getElementById("message");
 
-function showWelcome() {
+    if (email === "") {
 
-    document.getElementById("heading").innerText =
-        "Welcome to JavaScript";
+        message.innerText = "Email is required";
 
-}
+    } else if (!email.includes("@")) {
 
-function showMorning() {
+        message.innerText = "Enter a valid email";
 
-    document.getElementById("heading").innerText =
-        "Good Morning";
+    } else if (password === "") {
 
-}
+        message.innerText = "Password is required";
 
-function resetHeading() {
+    } else if (password.length < 6) {
 
-    document.getElementById("heading").innerText =
-        "Pratice of JS DOM Button Click";
+        message.innerText =
+            "Password must be at least 6 characters";
 
+    } else {
+
+        message.innerText = "Login Successful";
+    }
 }
