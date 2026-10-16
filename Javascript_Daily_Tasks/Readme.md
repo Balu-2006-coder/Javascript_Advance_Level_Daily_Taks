@@ -1,27 +1,28 @@
-# Day-16: Advanced Validation
+# Day-17: LocalStorage
 
 ## 📌 Overview
 
-This day focuses on **Advanced Form Validation in JavaScript**.
+This day focuses on **LocalStorage in JavaScript**.
 
-The tasks demonstrate how JavaScript can be used to validate user input, check login credentials, count characters in real time, and evaluate password strength based on different conditions.
+The tasks demonstrate how JavaScript can store, retrieve, update, and remove data from the browser using the `localStorage` API.
 
-These concepts are useful for creating secure, user-friendly, and interactive web forms.
+These concepts are useful for creating websites that can remember user information, preferences, and settings even after refreshing or reopening the webpage.
 
 ---
 
 ## 🎯 Learning Objectives
 
-* Understand advanced form validation using JavaScript.
-* Validate login form inputs.
-* Check username and password conditions.
-* Count characters dynamically.
-* Validate password requirements.
-* Create a password strength indicator.
-* Use conditional statements for validation.
-* Handle form and input events.
-* Display validation messages dynamically using the DOM.
-* Practice regular expressions and string methods.
+* Understand the concept of LocalStorage.
+* Store data in the browser.
+* Retrieve stored data using JavaScript.
+* Remove specific data from LocalStorage.
+* Save and remember usernames.
+* Create a save and remove functionality.
+* Store user preferences such as themes.
+* Use `localStorage.setItem()`.
+* Use `localStorage.getItem()`.
+* Use `localStorage.removeItem()`.
+* Practice DOM manipulation with LocalStorage.
 
 ---
 
@@ -30,26 +31,26 @@ These concepts are useful for creating secure, user-friendly, and interactive we
 * HTML5
 * JavaScript
 * DOM Manipulation
-* Form Validation
+* LocalStorage API
 
 ---
 
 ## 📂 Folder Structure
 
 ```text
-Day-16-Advanced-Validation/
+Day-17-LocalStorage/
 │
-├── Task-35-Login-Validation/
+├── Task-38-Save-Username/
 │   ├── index.html
 │   ├── script.js
 │   └── Output_Screenshots/
 │
-├── Task-36-Character-Counte/
+├── Task-39-Save-Remove-Name/
 │   ├── index.html
 │   ├── script.js
 │   └── Output_Screenshots/
 │
-└── Task-37-Password-Strength/
+└── Task-40-Remember-Theme/
     ├── index.html
     ├── script.js
     └── Output_Screenshots/
@@ -59,243 +60,201 @@ Day-16-Advanced-Validation/
 
 # 📚 Tasks
 
-## 🔹 Task-35: Login Validation
+## 🔹 Task-38: Save Username
 
 ### 📌 Description
 
-Create a **Login Form Validation** using JavaScript.
+Create a simple application to **save a username using LocalStorage**.
 
-The form validates user input before allowing the login process to continue. Different conditions are checked to ensure that the required fields contain valid information.
+The username entered by the user is stored in the browser. Even after refreshing the webpage, the stored username can be retrieved and displayed.
 
 ### 💡 Concepts Practiced
 
-* Form Validation
-* Input Validation
-* DOM Selection
-* `value`
-* `trim()`
-* Conditional Statements
-* `if...else`
-* Error Messages
-* Form Events
+* LocalStorage
+* `setItem()`
+* `getItem()`
+* Input Handling
 * DOM Manipulation
+* Button Events
+* String Storage
 
 ### Example
 
 ```javascript
-const username = usernameInput.value.trim();
-const password = passwordInput.value.trim();
+localStorage.setItem("username", username);
 
-if (username === "") {
-    message.textContent = "Username is required";
-} else if (password === "") {
-    message.textContent = "Password is required";
-} else {
-    message.textContent = "Login Successful";
-}
+const savedUsername = localStorage.getItem("username");
+
+console.log(savedUsername);
 ```
 
-The form checks the entered values and displays the appropriate validation message.
+The username is stored in the browser and can be retrieved whenever required.
 
 ---
 
-## 🔹 Task-36: Character Counter
+## 🔹 Task-39: Save & Remove Name
 
 ### 📌 Description
 
-Create a **Character Counter** using JavaScript.
+Create an application where the user can **save a name and remove the saved name** from LocalStorage.
 
-The number of characters entered by the user is counted dynamically while typing in the input field or textarea.
-
-This task demonstrates how JavaScript can respond to input events and update the webpage in real time.
+The Save button stores the entered name, while the Remove button deletes the stored name.
 
 ### 💡 Concepts Practiced
 
-* Input Events
-* `input` Event
-* String `length`
+* `localStorage.setItem()`
+* `localStorage.getItem()`
+* `localStorage.removeItem()`
+* Button Events
+* Input Handling
 * DOM Manipulation
-* Dynamic Content Update
-* Textarea/Input Handling
-* Real-Time Validation
+* Data Removal
 
 ### Example
 
 ```javascript
-input.addEventListener("input", () => {
-    count.textContent = input.value.length;
-});
+localStorage.setItem("name", name);
+
+const savedName = localStorage.getItem("name");
+
+localStorage.removeItem("name");
 ```
 
-The character count is updated whenever the user enters or removes text.
+This task demonstrates how data can be both stored and removed from browser storage.
 
 ---
 
-## 🔹 Task-37: Password Strength
+## 🔹 Task-40: Remember Theme
 
 ### 📌 Description
 
-Create a **Password Strength Checker** using JavaScript.
+Create a **Theme Remembering Application** using LocalStorage.
 
-The entered password is evaluated based on different conditions such as password length, uppercase letters, lowercase letters, numbers, and special characters.
+The selected theme is stored in the browser. When the webpage is refreshed, the previously selected theme can be retrieved and applied automatically.
 
-The result indicates whether the password is weak, medium, or strong.
+For example, the user can switch between **Light Mode** and **Dark Mode**.
 
 ### 💡 Concepts Practiced
 
-* Password Validation
-* String Methods
-* Conditional Statements
-* Regular Expressions
-* `length`
-* `test()`
-* Input Events
+* LocalStorage
+* Theme Switching
+* `setItem()`
+* `getItem()`
 * DOM Manipulation
-* Password Strength Evaluation
+* CSS Classes
+* Click Events
+* User Preferences
 
 ### Example
 
 ```javascript
-let strength = 0;
+localStorage.setItem("theme", "dark");
 
-if (password.length >= 8) {
-    strength++;
-}
+const savedTheme = localStorage.getItem("theme");
 
-if (/[A-Z]/.test(password)) {
-    strength++;
-}
-
-if (/[a-z]/.test(password)) {
-    strength++;
-}
-
-if (/[0-9]/.test(password)) {
-    strength++;
-}
-
-if (/[^A-Za-z0-9]/.test(password)) {
-    strength++;
+if (savedTheme === "dark") {
+    document.body.classList.add("dark");
 }
 ```
 
-The password strength can then be determined based on the number of conditions satisfied.
+This allows the website to remember the user's theme preference.
 
 ---
 
 # 🧠 Key Concepts Learned
 
-## 1. Form Validation
+## 1. LocalStorage
 
-JavaScript can validate form inputs before processing the submitted data.
+`localStorage` allows websites to store data directly in the browser.
+
+The stored data remains available even after refreshing or reopening the webpage.
 
 ```javascript
-if (username === "") {
-    message.textContent = "Username is required";
-}
+localStorage.setItem("username", "Praveen");
 ```
 
 ---
 
-## 2. `trim()`
+## 2. `setItem()`
 
-The `trim()` method removes unnecessary spaces from the beginning and end of a string.
+The `setItem()` method is used to store data in LocalStorage.
+
+### Syntax
 
 ```javascript
-const username = input.value.trim();
+localStorage.setItem("key", "value");
 ```
 
-This is useful when validating user input.
+### Example
+
+```javascript
+localStorage.setItem("username", "Praveen");
+```
+
+Here:
+
+* `username` → Key
+* `Praveen` → Value
 
 ---
 
-## 3. `length`
+## 3. `getItem()`
 
-The `length` property returns the number of characters in a string.
-
-```javascript
-const count = text.length;
-```
-
-It can be used for character counting and password length validation.
-
----
-
-## 4. `input` Event
-
-The `input` event occurs whenever the value of an input element changes.
+The `getItem()` method retrieves previously stored data.
 
 ```javascript
-input.addEventListener("input", () => {
-    console.log(input.value);
-});
+const username = localStorage.getItem("username");
+
+console.log(username);
 ```
 
-This is useful for real-time validation and character counters.
-
----
-
-## 5. Regular Expressions
-
-Regular expressions can be used to check whether a string contains specific types of characters.
-
-### Uppercase Letter
-
-```javascript
-/[A-Z]/
-```
-
-### Lowercase Letter
-
-```javascript
-/[a-z]/
-```
-
-### Number
-
-```javascript
-/[0-9]/
-```
-
-### Special Character
-
-```javascript
-/[^A-Za-z0-9]/
-```
-
----
-
-## 6. `test()`
-
-The `test()` method checks whether a regular expression matches a string.
-
-```javascript
-/[A-Z]/.test(password);
-```
-
-It returns:
+Output:
 
 ```text
-true
-```
-
-or
-
-```text
-false
+Praveen
 ```
 
 ---
 
-## 7. Conditional Validation
+## 4. `removeItem()`
 
-Conditions can be combined to create advanced validation logic.
+The `removeItem()` method removes a specific item from LocalStorage.
 
 ```javascript
-if (password.length >= 8) {
-    console.log("Valid Length");
-} else {
-    console.log("Password is too short");
+localStorage.removeItem("username");
+```
+
+The stored username will be deleted.
+
+---
+
+## 5. Storing User Preferences
+
+LocalStorage can be used to remember user preferences such as:
+
+* Theme
+* Username
+* Language
+* Selected options
+* Website settings
+
+Example:
+
+```javascript
+localStorage.setItem("theme", "dark");
+```
+
+---
+
+## 6. Checking Stored Data
+
+Before displaying stored information, we can check whether the data exists.
+
+```javascript
+const username = localStorage.getItem("username");
+
+if (username) {
+    console.log("Welcome " + username);
 }
 ```
 
@@ -305,49 +264,46 @@ if (password.length >= 8) {
 
 Each task contains an **Output_Screenshots** folder containing the respective output screenshots.
 
-* **Task-35:** Login Validation Output
-* **Task-36:** Character Counter Output
-* **Task-37:** Password Strength Output
+* **Task-38:** Save Username Output
+* **Task-39:** Save & Remove Name Output
+* **Task-40:** Remember Theme Output
 
 ---
 
 # 📋 Task Summary
 
-| Task    | Project           | Main Concept                     |
-| ------- | ----------------- | -------------------------------- |
-| Task-35 | Login Validation  | Form Validation                  |
-| Task-36 | Character Counter | Input Event + `length`           |
-| Task-37 | Password Strength | Validation + Regular Expressions |
+| Task    | Project            | Main Concept                    |
+| ------- | ------------------ | ------------------------------- |
+| Task-38 | Save Username      | `setItem()` + `getItem()`       |
+| Task-39 | Save & Remove Name | `setItem()` + `removeItem()`    |
+| Task-40 | Remember Theme     | LocalStorage + Theme Preference |
 
 ---
 
 # 📖 Concepts Covered
 
-* Form Validation
-* Input Validation
-* DOM Selection
+* LocalStorage
+* Browser Storage
+* `localStorage`
+* `setItem()`
+* `getItem()`
+* `removeItem()`
+* Input Handling
+* Button Events
+* Click Events
 * DOM Manipulation
-* Form Events
-* Input Events
-* `value`
-* `trim()`
-* `length`
-* `input`
-* `if...else`
+* Theme Switching
+* User Preferences
+* Data Persistence
 * Conditional Statements
-* Regular Expressions
-* `test()`
-* Password Validation
-* Password Strength
-* Real-Time Validation
-* Dynamic Error Messages
-* Dynamic Content Updates
+* CSS Classes
+* JavaScript Storage API
 
 ---
 
-### ✅ Day-16 Completed
+### ✅ Day-17 Completed
 
-**Day:** 16
-**Topic:** Advanced Validation
-**Tasks Completed:** 35, 36, 37
+**Day:** 17
+**Topic:** LocalStorage
+**Tasks Completed:** 38, 39, 40
 **Status:** Completed

@@ -1,30 +1,16 @@
-function login(event) {
+let savedUsername = localStorage.getItem("username");
 
-    event.preventDefault();
+if (savedUsername) {
+    document.getElementById("message").innerText =
+        "Welcome, " + savedUsername + "!";
+}
 
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-    let message = document.getElementById("message");
+function saveUsername() {
 
-    if (email === "") {
+    let username = document.getElementById("username").value;
 
-        message.innerText = "Email is required";
+    localStorage.setItem("username", username);
 
-    } else if (!email.includes("@")) {
-
-        message.innerText = "Enter a valid email";
-
-    } else if (password === "") {
-
-        message.innerText = "Password is required";
-
-    } else if (password.length < 6) {
-
-        message.innerText =
-            "Password must be at least 6 characters";
-
-    } else {
-
-        message.innerText = "Login Successful";
-    }
+    document.getElementById("message").innerText =
+        "Welcome, " + username + "!";
 }

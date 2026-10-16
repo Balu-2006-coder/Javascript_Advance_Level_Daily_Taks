@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character Counter</title>
+    <title>Save Remove Name</title>
 </head>
 <body>
 
-    <h1>Character Counter</h1>
+    <h1>Username</h1>
 
-    <textarea
-        id="text"
-        rows="5"
-        cols="40"
-        oninput="countCharacters()"
-    ></textarea>
+    <input type="text" id="username" placeholder="Enter username">
 
-    <p>Characters: <span id="count">0</span></p>
+    <button onclick="saveName()">Save</button>
+
+    <button onclick="removeName()">Remove</button>
+
+    <h2 id="message"></h2>
 
     <script src="script.js"></script>
 

@@ -3,29 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Validation</title>
+    <title>Save Username</title>
 </head>
 <body>
 
-    <h1>Login Form</h1>
+    <h1>Save Username</h1>
 
-    <form onsubmit="login(event)">
+    <input type="text" id="username" placeholder="Enter username">
 
-        <label>Email:</label>
-        <input type="text" id="email">
+    <button onclick="saveUsername()">Save</button>
 
-        <br><br>
-
-        <label>Password:</label>
-        <input type="password" id="password">
-
-        <br><br>
-
-        <button type="submit">Login</button>
-
-    </form>
-
-    <p id="message"></p>
+    <h2 id="message"></h2>
 
     <script src="script.js"></script>
 
