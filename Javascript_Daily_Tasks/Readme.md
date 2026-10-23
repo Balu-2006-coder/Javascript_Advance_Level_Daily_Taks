@@ -1,28 +1,35 @@
-# Day-17: LocalStorage
+# Day-18: CRUD Application
 
 ## 📌 Overview
 
-This day focuses on **LocalStorage in JavaScript**.
+This day focuses on building a basic **CRUD Application using JavaScript**.
 
-The tasks demonstrate how JavaScript can store, retrieve, update, and remove data from the browser using the `localStorage` API.
+CRUD stands for:
 
-These concepts are useful for creating websites that can remember user information, preferences, and settings even after refreshing or reopening the webpage.
+* **C** → Create
+* **R** → Read
+* **U** → Update
+* **D** → Delete
+
+The tasks demonstrate how JavaScript can be used to add products, display product data, delete products, and manage complete product information using CRUD operations.
+
+These concepts are important for building dynamic web applications such as product management systems, student management systems, employee management systems, and e-commerce applications.
 
 ---
 
 ## 🎯 Learning Objectives
 
-* Understand the concept of LocalStorage.
-* Store data in the browser.
-* Retrieve stored data using JavaScript.
-* Remove specific data from LocalStorage.
-* Save and remember usernames.
-* Create a save and remove functionality.
-* Store user preferences such as themes.
-* Use `localStorage.setItem()`.
-* Use `localStorage.getItem()`.
-* Use `localStorage.removeItem()`.
-* Practice DOM manipulation with LocalStorage.
+* Understand the concept of CRUD operations.
+* Create and add product data.
+* Display product information dynamically.
+* Delete product data.
+* Update existing product information.
+* Handle form inputs using JavaScript.
+* Work with arrays of objects.
+* Use DOM manipulation.
+* Create dynamic HTML elements.
+* Practice event handling.
+* Build a complete basic CRUD application.
 
 ---
 
@@ -31,26 +38,28 @@ These concepts are useful for creating websites that can remember user informati
 * HTML5
 * JavaScript
 * DOM Manipulation
-* LocalStorage API
+* JavaScript Arrays
+* JavaScript Objects
+* Event Handling
 
 ---
 
 ## 📂 Folder Structure
 
 ```text
-Day-17-LocalStorage/
+Day-18-CRUD-Application/
 │
-├── Task-38-Save-Username/
+├── Task-41-Add-Product/
 │   ├── index.html
 │   ├── script.js
 │   └── Output_Screenshots/
 │
-├── Task-39-Save-Remove-Name/
+├── Task-42-Delete-Product/
 │   ├── index.html
 │   ├── script.js
 │   └── Output_Screenshots/
 │
-└── Task-40-Remember-Theme/
+└── Task-43-Product-CRUD/
     ├── index.html
     ├── script.js
     └── Output_Screenshots/
@@ -60,203 +69,217 @@ Day-17-LocalStorage/
 
 # 📚 Tasks
 
-## 🔹 Task-38: Save Username
+## 🔹 Task-41: Add Product
 
 ### 📌 Description
 
-Create a simple application to **save a username using LocalStorage**.
+Create a simple application to **add product information using JavaScript**.
 
-The username entered by the user is stored in the browser. Even after refreshing the webpage, the stored username can be retrieved and displayed.
+The user enters product details through a form and the product is added to the product list dynamically.
 
 ### 💡 Concepts Practiced
 
-* LocalStorage
-* `setItem()`
-* `getItem()`
-* Input Handling
+* Form Handling
+* Input Values
+* Arrays
+* Objects
+* `push()`
 * DOM Manipulation
 * Button Events
-* String Storage
+* Dynamic HTML
 
 ### Example
 
 ```javascript
-localStorage.setItem("username", username);
+let products = [];
 
-const savedUsername = localStorage.getItem("username");
+let product = {
+    name: productName,
+    price: productPrice
+};
 
-console.log(savedUsername);
+products.push(product);
 ```
 
-The username is stored in the browser and can be retrieved whenever required.
+The entered product information is stored inside an array of objects.
 
 ---
 
-## 🔹 Task-39: Save & Remove Name
+## 🔹 Task-42: Delete Product
 
 ### 📌 Description
 
-Create an application where the user can **save a name and remove the saved name** from LocalStorage.
+Create an application where the user can **delete a product from the product list**.
 
-The Save button stores the entered name, while the Remove button deletes the stored name.
+Each product contains a delete button. When the button is clicked, the selected product is removed from the list.
 
 ### 💡 Concepts Practiced
 
-* `localStorage.setItem()`
-* `localStorage.getItem()`
-* `localStorage.removeItem()`
-* Button Events
-* Input Handling
+* Arrays
+* Objects
+* `filter()`
 * DOM Manipulation
-* Data Removal
+* Button Events
+* Dynamic Data
+* Product Deletion
 
 ### Example
 
 ```javascript
-localStorage.setItem("name", name);
-
-const savedName = localStorage.getItem("name");
-
-localStorage.removeItem("name");
+products = products.filter(function(product) {
+    return product.id !== id;
+});
 ```
 
-This task demonstrates how data can be both stored and removed from browser storage.
+The selected product is removed from the array and the updated product list is displayed.
 
 ---
 
-## 🔹 Task-40: Remember Theme
+## 🔹 Task-43: Product CRUD
 
 ### 📌 Description
 
-Create a **Theme Remembering Application** using LocalStorage.
+Create a complete **Product CRUD Application** using JavaScript.
 
-The selected theme is stored in the browser. When the webpage is refreshed, the previously selected theme can be retrieved and applied automatically.
+This task combines all four CRUD operations:
 
-For example, the user can switch between **Light Mode** and **Dark Mode**.
+* Create a product
+* Read and display products
+* Update product information
+* Delete a product
+
+The application manages product information dynamically through JavaScript.
 
 ### 💡 Concepts Practiced
 
-* LocalStorage
-* Theme Switching
-* `setItem()`
-* `getItem()`
+* Create
+* Read
+* Update
+* Delete
+* Arrays of Objects
 * DOM Manipulation
-* CSS Classes
-* Click Events
-* User Preferences
+* Form Handling
+* Event Handling
+* Dynamic HTML
+* Product Management
 
-### Example
+### CRUD Operations
 
-```javascript
-localStorage.setItem("theme", "dark");
-
-const savedTheme = localStorage.getItem("theme");
-
-if (savedTheme === "dark") {
-    document.body.classList.add("dark");
-}
-```
-
-This allows the website to remember the user's theme preference.
+| Operation | Description                   |
+| --------- | ----------------------------- |
+| Create    | Add a new product             |
+| Read      | Display product details       |
+| Update    | Edit existing product details |
+| Delete    | Remove a product              |
 
 ---
 
 # 🧠 Key Concepts Learned
 
-## 1. LocalStorage
+## 1. Create
 
-`localStorage` allows websites to store data directly in the browser.
-
-The stored data remains available even after refreshing or reopening the webpage.
+The **Create** operation is used to add new data.
 
 ```javascript
-localStorage.setItem("username", "Praveen");
+products.push(product);
 ```
+
+A new product object is added to the product array.
 
 ---
 
-## 2. `setItem()`
+## 2. Read
 
-The `setItem()` method is used to store data in LocalStorage.
-
-### Syntax
+The **Read** operation is used to display stored product information.
 
 ```javascript
-localStorage.setItem("key", "value");
+products.forEach(function(product) {
+    console.log(product.name);
+});
 ```
 
-### Example
-
-```javascript
-localStorage.setItem("username", "Praveen");
-```
-
-Here:
-
-* `username` → Key
-* `Praveen` → Value
+The product data can be displayed dynamically on the webpage.
 
 ---
 
-## 3. `getItem()`
+## 3. Update
 
-The `getItem()` method retrieves previously stored data.
+The **Update** operation is used to modify existing product information.
 
 ```javascript
-const username = localStorage.getItem("username");
-
-console.log(username);
+products[index].name = newName;
+products[index].price = newPrice;
 ```
 
-Output:
-
-```text
-Praveen
-```
+The selected product can be updated with new information.
 
 ---
 
-## 4. `removeItem()`
+## 4. Delete
 
-The `removeItem()` method removes a specific item from LocalStorage.
+The **Delete** operation removes unwanted data.
 
 ```javascript
-localStorage.removeItem("username");
+products = products.filter(function(product) {
+    return product.id !== id;
+});
 ```
 
-The stored username will be deleted.
+The selected product is removed from the product list.
 
 ---
 
-## 5. Storing User Preferences
+## 5. Arrays of Objects
 
-LocalStorage can be used to remember user preferences such as:
-
-* Theme
-* Username
-* Language
-* Selected options
-* Website settings
-
-Example:
+Product information can be stored using an array containing multiple objects.
 
 ```javascript
-localStorage.setItem("theme", "dark");
+let products = [
+    {
+        id: 1,
+        name: "Laptop",
+        price: 50000
+    },
+    {
+        id: 2,
+        name: "Mobile",
+        price: 20000
+    }
+];
 ```
+
+This structure is commonly used when working with multiple records.
 
 ---
 
-## 6. Checking Stored Data
+## 6. DOM Manipulation
 
-Before displaying stored information, we can check whether the data exists.
+JavaScript can dynamically create and update HTML elements.
 
 ```javascript
-const username = localStorage.getItem("username");
-
-if (username) {
-    console.log("Welcome " + username);
-}
+container.innerHTML = "";
 ```
+
+The product list can then be generated based on the current data.
+
+---
+
+## 7. Event Handling
+
+Events allow the application to respond to user actions.
+
+```javascript
+button.addEventListener("click", function() {
+    console.log("Button Clicked");
+});
+```
+
+Events are used for actions such as:
+
+* Add Product
+* Delete Product
+* Edit Product
+* Update Product
 
 ---
 
@@ -264,46 +287,50 @@ if (username) {
 
 Each task contains an **Output_Screenshots** folder containing the respective output screenshots.
 
-* **Task-38:** Save Username Output
-* **Task-39:** Save & Remove Name Output
-* **Task-40:** Remember Theme Output
+* **Task-41:** Add Product Output
+* **Task-42:** Delete Product Output
+* **Task-43:** Product CRUD Output
 
 ---
 
 # 📋 Task Summary
 
-| Task    | Project            | Main Concept                    |
-| ------- | ------------------ | ------------------------------- |
-| Task-38 | Save Username      | `setItem()` + `getItem()`       |
-| Task-39 | Save & Remove Name | `setItem()` + `removeItem()`    |
-| Task-40 | Remember Theme     | LocalStorage + Theme Preference |
+| Task    | Project        | Main Concept              |
+| ------- | -------------- | ------------------------- |
+| Task-41 | Add Product    | Create + Arrays + Objects |
+| Task-42 | Delete Product | Delete + `filter()`       |
+| Task-43 | Product CRUD   | Complete CRUD Operations  |
 
 ---
 
 # 📖 Concepts Covered
 
-* LocalStorage
-* Browser Storage
-* `localStorage`
-* `setItem()`
-* `getItem()`
-* `removeItem()`
+* CRUD Operations
+* Create
+* Read
+* Update
+* Delete
+* Arrays
+* Objects
+* Arrays of Objects
+* `push()`
+* `filter()`
+* `forEach()`
+* DOM Manipulation
+* Dynamic HTML
+* Form Handling
 * Input Handling
 * Button Events
 * Click Events
-* DOM Manipulation
-* Theme Switching
-* User Preferences
-* Data Persistence
-* Conditional Statements
-* CSS Classes
-* JavaScript Storage API
+* Event Listeners
+* Product Management
+* Dynamic Data Handling
 
 ---
 
-### ✅ Day-17 Completed
+### ✅ Day-18 Completed
 
-**Day:** 17
-**Topic:** LocalStorage
-**Tasks Completed:** 38, 39, 40
+**Day:** 18
+**Topic:** CRUD Application
+**Tasks Completed:** 41, 42, 43
 **Status:** Completed

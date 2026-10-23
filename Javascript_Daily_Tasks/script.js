@@ -1,16 +1,32 @@
-let savedUsername = localStorage.getItem("username");
+let products = [];
 
-if (savedUsername) {
-    document.getElementById("message").innerText =
-        "Welcome, " + savedUsername + "!";
+function addProduct() {
+
+    let product = document.getElementById("product").value;
+
+    if (product === "") {
+        return;
+    }
+
+    products.push(product);
+
+    displayProducts();
+
+    document.getElementById("product").value = "";
 }
 
-function saveUsername() {
+function displayProducts() {
 
-    let username = document.getElementById("username").value;
+    let list = document.getElementById("productList");
 
-    localStorage.setItem("username", username);
+    list.innerHTML = "";
 
-    document.getElementById("message").innerText =
-        "Welcome, " + username + "!";
+    products.forEach(function(product) {
+
+        let li = document.createElement("li");
+
+        li.innerText = product;
+
+        list.appendChild(li);
+    });
 }

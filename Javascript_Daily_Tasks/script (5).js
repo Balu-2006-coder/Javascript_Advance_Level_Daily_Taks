@@ -1,24 +1,49 @@
-let savedName = localStorage.getItem("username");
+let products = [];
 
-if (savedName) {
-    document.getElementById("message").innerText =
-        "Welcome, " + savedName + "!";
+function addProduct() {
+
+    let product = document.getElementById("product").value;
+
+    if (product === "") {
+        return;
+    }
+
+    products.push(product);
+
+    displayProducts();
+
+    document.getElementById("product").value = "";
 }
 
-function saveName() {
+function displayProducts() {
 
-    let username = document.getElementById("username").value;
+    let list = document.getElementById("productList");
 
-    localStorage.setItem("username", username);
+    list.innerHTML = "";
 
-    document.getElementById("message").innerText =
-        "Welcome, " + username + "!";
+    products.forEach(function(product, index) {
+
+        let li = document.createElement("li");
+
+        li.innerText = product + " ";
+
+        let deleteButton = document.createElement("button");
+
+        deleteButton.innerText = "Delete";
+
+        deleteButton.onclick = function() {
+            deleteProduct(index);
+        };
+
+        li.appendChild(deleteButton);
+
+        list.appendChild(li);
+    });
 }
 
-function removeName() {
+function deleteProduct(index) {
 
-    localStorage.removeItem("username");
+    products.splice(index, 1);
 
-    document.getElementById("message").innerText =
-        "Username Removed";
+    displayProducts();
 }

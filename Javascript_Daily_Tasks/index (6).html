@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remember Theme</title>
+    <title>Product CRUD</title>
 </head>
 <body>
 
-    <h1>Theme Selector</h1>
+    <h1>Product List</h1>
 
-    <button onclick="lightTheme()">Light</button>
+    <input
+        type="text"
+        id="product"
+        placeholder="Enter product name"
+    >
 
-    <button onclick="darkTheme()">Dark</button>
+    <button onclick="addProduct()">Add Product</button>
+
+    <h2>Products:</h2>
+
+    <ul id="productList"></ul>
 
     <script src="script.js"></script>
 
