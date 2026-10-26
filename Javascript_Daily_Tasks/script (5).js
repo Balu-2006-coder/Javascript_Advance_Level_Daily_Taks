@@ -1,49 +1,50 @@
-let products = [];
+let users = [];
 
-function addProduct() {
+function getUsers() {
 
-    let product = document.getElementById("product").value;
+    fetch("https://jsonplaceholder.typicode.com/users")
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
 
-    if (product === "") {
-        return;
-    }
+            users = data;
 
-    products.push(product);
+            searchUsers();
+        })
+        .catch(function(error) {
 
-    displayProducts();
+            alert("Failed to load users");
 
-    document.getElementById("product").value = "";
+            console.log(error);
+        });
 }
 
-function displayProducts() {
+function displayUsers(data) {
 
-    let list = document.getElementById("productList");
+    let list = document.getElementById("userList");
 
     list.innerHTML = "";
 
-    products.forEach(function(product, index) {
+    data.forEach(function(user) {
 
         let li = document.createElement("li");
 
-        li.innerText = product + " ";
-
-        let deleteButton = document.createElement("button");
-
-        deleteButton.innerText = "Delete";
-
-        deleteButton.onclick = function() {
-            deleteProduct(index);
-        };
-
-        li.appendChild(deleteButton);
+        li.innerText = user.name;
 
         list.appendChild(li);
     });
 }
 
-function deleteProduct(index) {
+function searchUsers() {
 
-    products.splice(index, 1);
+    let searchValue =
+        document.getElementById("search").value.toLowerCase();
 
-    displayProducts();
+    let filteredUsers = users.filter(function(user) {
+
+        return user.name.toLowerCase().includes(searchValue);
+    });
+
+    displayUsers(filteredUsers);
 }

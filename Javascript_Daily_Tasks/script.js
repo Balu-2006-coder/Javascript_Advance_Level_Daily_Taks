@@ -1,32 +1,28 @@
-let products = [];
+function getUsers() {
 
-function addProduct() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(users) {
 
-    let product = document.getElementById("product").value;
+            let list = document.getElementById("userList");
 
-    if (product === "") {
-        return;
-    }
+            list.innerHTML = "";
 
-    products.push(product);
+            users.forEach(function(user) {
 
-    displayProducts();
+                let li = document.createElement("li");
 
-    document.getElementById("product").value = "";
-}
+                li.innerText = user.name;
 
-function displayProducts() {
+                list.appendChild(li);
+            });
+        })
+        .catch(function(error) {
 
-    let list = document.getElementById("productList");
+            alert("Failed to load users");
 
-    list.innerHTML = "";
-
-    products.forEach(function(product) {
-
-        let li = document.createElement("li");
-
-        li.innerText = product;
-
-        list.appendChild(li);
-    });
+            console.log(error);
+        });
 }
